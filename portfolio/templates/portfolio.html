@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'images/favicon.ico' %}" rel="icon">
+    <link href="{% static 'images/favicon.ico' %}" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1F252E;
+            color: #fff;
+            user-select: none;
+        }
+
+        header {
+            padding: 1.7rem 1rem;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            max-width: 80%;
+            margin: auto;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: .97rem;
+            font-weight: 600;
+            letter-spacing: .7px;
+            padding: 0.4rem 1rem;
+        }
+
+        nav a.active,
+        nav a:hover {
+            color: #00E8F8;
+            border-radius: 1rem;
+            transition: all .3s ease-in-out;
+        }
+
+        #click {
+            display: none;
+        }
+
+        .menu i {
+            color: #00E8F8;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        section {
+            margin: 2rem 8.5rem;
+        }
+
+        .portfolio-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .portfolio-text {
+            max-width: 550px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .portfolio-text h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #00E8F8;
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .project-item {
+            background-color: #2D3C47;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0px 16px 4px -10px #00E8F8;
+            text-align: center;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 150px; 
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 16px 4px -10px #00E8F8;
+        }
+
+        .project-item h3 {
+            margin-top: 1rem;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .project-item p {
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 16px 4px -10px #00E8F8;
+            object-fit: cover;
+        }
+
+        @media only screen and (max-width:480px) {
+            .menu {
+                display: block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #244D61;
+            }
+
+            header {
+                padding: 0.7rem 1rem;
+                max-width: 100%;
+            }
+
+            nav {
+                position: absolute;
+                display: grid;
+                top: 75px;
+                text-align: center;
+                background-color: #1F252E;
+                left: -100%;
+                z-index: 1;
+                width: 100%;
+            }
+
+            #click:checked~nav {
+                left: 0%;
+                transition: all 0.3s ease;
+            }
+
+            section {
+                margin: 1rem 1.5rem;
+            }
+
+            .portfolio-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .projects-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">My WebSite</a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="mainicon">
+            <div class="menu">
+                <i class="bi bi-list"></i>
+            </div>
+        </label>
+        <nav>
+            <a href="/" class="">Home</a>
+            <a href="/about">About</a>
+            <a href="/skills">Skills</a>
+            <a href="/portfolio" class="active">Portfolio</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="portfolio-content">
+            <div class="portfolio-text">
+                <h1>My Portfolio</h1>
+                <p>
+                    Below are some of the projects I’ve worked on. Each project showcases my skills in different areas of development and design.
+                </p>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <img src="{% static 'images/erpstudent.jpg' %}" alt="Project 1">
+                        <h3>ERPSudentBot</h3>
+                        <p>Telegram bot for the najottalim.uz platform.</p>
+                    </div>
+                    <div class="project-item">
+                        <img src="{% static 'images/kuynavo.jpg' %}" alt="Project 2">
+                        <h3>KuyNavoBot</h3>
+                        <p>Download media from Instagram and TikTok platforms effortlessly via Telegram bot!</p>
+                    </div>
+                    <div class="project-item">
+                        <img src="{% static 'images/sardorprem.jpg' %}" alt="Project 3">
+                        <h3>SardorPremiumBot</h3>
+                        <p>You can earn money on Telegram through referrals and use the money you earn to purchase a Premium subscription!</p>
+                    </div>
+                    <div class="project-item">
+                        <img src="{% static 'images/byopenai.jpg' %}" alt="Project 4">
+                        <h3>BYOPEN-AI</h3>
+                        <p>OPEN-AI's unofficial bot on Telegram. This bot has ChatGPT 3.5 and ChatGPT 4 models!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'images/portfolio.png' %}" alt="Portfolio Image">
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
